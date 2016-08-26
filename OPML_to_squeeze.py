@@ -18,11 +18,11 @@ if len(sys.argv) < 3:
 	quit()
 
 # User specific variables
-msb_user = sys.argv[0]
-msb_pass = sys.argv[1]
+msb_user = sys.argv[1]
+msb_pass = sys.argv[2]
 
 # Location of local OPML file to import
-opml_path = sys.argv[2]
+opml_path = sys.argv[3]
 
 # mysqueezebox.com URL (the redirect saves us one step)
 URL = 'http://mysqueezebox.com/user/login?redirect=user/apps'
@@ -33,6 +33,7 @@ driver = webdriver.PhantomJS(desired_capabilities=dcap)
 driver.get(URL)
 
 # Login on mysqueezebox.com
+print ("Loggin in to mysqueezebox.com")
 element = driver.find_element_by_xpath('//*[@id="email"]')
 element.send_keys(msb_user)
 
@@ -45,7 +46,7 @@ element.submit()
 time.sleep(1)
 
 # Delete current podcast subscription list
-
+print ("Deleting current subscription list")
 # The URL scheme for deleting entries in the list is
 # http://mysqueezebox.com/settings/podcasts/delete/[ID]
 
@@ -67,9 +68,10 @@ opml_cont = opml_file.read()
 pods = lp.parse(opml_cont)
 
 # Create new subscription list, one entry at a time
+print ("Creating new subscription list from OPML file")
 for feed in pods.feeds:
 	element = driver.find_element_by_xpath('//input[@name="url"]')
 	element.clear()
 	element.send_keys(feed.url)
 	driver.find_element_by_xpath('//*[@id="add_button"]').click()
-	time.sleep(0.5)
+	time.sleep(0.7)
