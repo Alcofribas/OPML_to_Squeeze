@@ -4,8 +4,6 @@
 # sudo pip install selenium listparser
 # sudo apt-get install phantomjs
 
-# TODO: take credentials and opml path as command line parameters
-
 import sys
 import time
 import listparser as lp
@@ -20,11 +18,11 @@ if len(sys.argv) < 3:
 	quit()
 
 # User specific variables
-msb_user = sys.argv[1]
-msb_pass = sys.argv[2]
+msb_user = sys.argv[0]
+msb_pass = sys.argv[1]
 
 # Location of local OPML file to import
-opml_path = sys.argv[3]
+opml_path = sys.argv[2]
 
 # mysqueezebox.com URL (the redirect saves us one step)
 URL = 'http://mysqueezebox.com/user/login?redirect=user/apps'
