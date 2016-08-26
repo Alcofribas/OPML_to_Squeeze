@@ -13,9 +13,8 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 dcap = dict(DesiredCapabilities.PHANTOMJS)
 
 # user specific variables
-msb_user = 'olihui@gmx.de'
-msb_pass = 'SqueewitT12'
-
+msb_user = '<USER NAME>'
+msb_pass = '<PASSWORD>'
 
 URL = 'http://mysqueezebox.com/user/login?redirect=user/apps'
 
