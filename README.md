@@ -1,5 +1,5 @@
 # OPML_to_Squeeze
-_Simple Script to Sync Podcast Subscription in Squeezebox App with OPML File_
+_Update Podcast Subscription in Squeezebox App From OPML File Automatically_
 
 ## Background
 
