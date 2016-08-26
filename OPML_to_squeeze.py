@@ -16,6 +16,9 @@ dcap = dict(DesiredCapabilities.PHANTOMJS)
 msb_user = '<USER NAME>'
 msb_pass = '<PASSWORD>'
 
+# location of OPML file to import
+opml_path = "<OPML FILE PATH>"
+
 URL = 'http://mysqueezebox.com/user/login?redirect=user/apps'
 
 driver = webdriver.PhantomJS(desired_capabilities=dcap)
@@ -59,9 +62,6 @@ for pod in pod_ids:
 	driver.get("http://mysqueezebox.com/settings/podcasts/delete/" + pod)
 
 # lokale OPML-Datei laden
-# TODO: Auswahldialog
-
-opml_path = "/home/oliver/Schreibtisch/antennapod-feeds.opml"
 opml_file = open(opml_path)
 opml_cont = opml_file.read()
 pods = lp.parse(opml_cont)
