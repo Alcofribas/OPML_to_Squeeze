@@ -7,6 +7,12 @@ My first encounter with music streaming in 2010 was a [Logitech Squeezebox Duet]
 
 As I mainly use my mobile for dealing with podcasts, I created this script to easily update the subscription list within the Squeezebox with a bot based on PhantomJS using an OPML file containing the current subscription list exported from my mobile podcatcher. 
 
+## Prerequisites
+
+- Python 2.7  
+- Python libraries Selenium and Listparser  
+- PhantomJS  
+
 ## Usage
 
 You have to  
@@ -14,11 +20,9 @@ You have to
 2. set the correct filename  
 3. run the script…  
 
-## Prerequisites
+## Caveats
 
-- Python 2.7  
-- Python libraries Selenium and Listparser  
-- PhantomJS  
+Currently the mysqueezebox subscription list is deleted without being backed up, so make sure you're OK with that before running the script. 
 
 ## Feedback
 
