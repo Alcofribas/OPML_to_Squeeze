@@ -10,7 +10,7 @@ As I mainly use my mobile for dealing with podcasts, I created this script to ea
 ## Prerequisites
 
 - Python 2.7  
-- Python libraries Selenium and Listparser  
+- Python libraries: Selenium, Listparser  
 - PhantomJS  
 
 ## Usage
