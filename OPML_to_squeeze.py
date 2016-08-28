@@ -15,7 +15,7 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 if len(sys.argv) < 3:
 	print ("Usage: python OPML_to_squeeze.py [Username] [Password] [OPML file to import]")
-	quit()
+	sys.exit(0)
 
 # User specific variables
 msb_user = sys.argv[1]
@@ -63,8 +63,13 @@ for pod in pod_ids:
 	driver.get("http://mysqueezebox.com/settings/podcasts/delete/" + pod)
 
 # Load local OPML file
-opml_file = open(opml_path)
-opml_cont = opml_file.read()
+try:
+	opml_file = open(opml_path)
+	opml_cont = opml_file.read()
+except IOError as e:
+	print "I/O error({0}): {1}".format(e.errno, e.strerror)
+	sys.exit(1)
+
 pods = lp.parse(opml_cont)
 
 # Create new subscription list, one entry at a time
